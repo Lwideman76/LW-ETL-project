@@ -22,9 +22,6 @@ This project involves building an ETL process to analyze a Loan Application data
    git clone https://github.com/Lwideman76/LW-Capstone-project.git
    cd LW-Capstone-project
 
-
-## Project Components
-
 ### Data
 - Loan Application Dataset: Contains information on loan applications and their statuses. As well as well written steps given to break down the processes 
 - Credit Card Dataset: Contains information on credit card transactions and customer profiles. As well as well written steps given to break down the processes 
@@ -35,12 +32,8 @@ This project involves building an ETL process to analyze a Loan Application data
 - `Data_Visualization.ipynb`: Jupyter notebook for visualizing the data.
 
 ### Database Scripts
-- `create_tables.sql`: SQL script to create necessary database tables.
+- `Creating_tables.sql`: SQL script to create necessary database tables.
 - `load_data.sql`: SQL script to load data into the database.
-
-### Screenshots
-- Screenshots of the graphs and visualizations generated during the analysis.
-
 
 ## Interpreting the Visualizations
 
