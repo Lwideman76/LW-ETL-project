@@ -1,6 +1,7 @@
 import mysql.connector
 from mysql.connector import Error
 
+# Function to prompt for input and validate it using a validation function
 def prompt_for_input(prompt, validation_func):
     while True:
         value = input(prompt)
@@ -9,17 +10,22 @@ def prompt_for_input(prompt, validation_func):
         else:
             print("Invalid input. Please try again.")
 
+# Validation function for ZIP code
 def is_valid_zip(zip_code):
     return zip_code.isdigit() and len(zip_code) == 5
 
+# Validation function for month
 def is_valid_month(month):
     return month.isdigit() and 1 <= int(month) <= 12
 
+# Validation function for year
 def is_valid_year(year):
     return year.isdigit() and len(year) == 4
 
+# Function to fetch transactions based on ZIP code, month, and year
 def fetch_transactions(zip_code, month, year):
     try:
+        # Connect to the database
         conn = mysql.connector.connect(
             host='localhost',
             user='root',
@@ -29,6 +35,7 @@ def fetch_transactions(zip_code, month, year):
         )
         if conn.is_connected():
             cursor = conn.cursor()
+            # SQL query to fetch transactions
             query = """
             SELECT cc.*, cu.*
             FROM cdw_sapp_credit_card cc
@@ -39,7 +46,7 @@ def fetch_transactions(zip_code, month, year):
             """
             print(f"Executing query: {query} with values ({zip_code}, {month}, {year})")
             cursor.execute(query, (zip_code, month, year))
-            transactions = cursor.fetchall()
+            transactions = cursor.fetchall()  # Fetch all the transactions
             cursor.close()
             conn.close()
             return transactions
@@ -47,6 +54,7 @@ def fetch_transactions(zip_code, month, year):
         print(f"Error: {e}")
         return []
 
+# Main function to handle transaction details
 def main_transaction_details():
     zip_code = prompt_for_input("Enter a 5-digit zip code: ", is_valid_zip)
     month = prompt_for_input("Enter the month (1-12): ", is_valid_month)
@@ -57,6 +65,7 @@ def main_transaction_details():
     for transaction in transactions:
         print(transaction)
 
+# Function to fetch customer details based on SSN
 def fetch_customer_details(ssn):
     try:
         conn = mysql.connector.connect(
@@ -68,6 +77,7 @@ def fetch_customer_details(ssn):
         )
         if conn.is_connected():
             cursor = conn.cursor()
+            # SQL query to fetch customer details
             query = """
             SELECT * FROM cdw_sapp_customer
             WHERE ssn = %s
@@ -75,7 +85,7 @@ def fetch_customer_details(ssn):
             """
             print(f"Executing query: {query} with value ({ssn})")
             cursor.execute(query, (ssn,))
-            details = cursor.fetchone()
+            details = cursor.fetchone()  # Fetch one customer detail
             cursor.close()
             conn.close()
             return details
@@ -83,6 +93,7 @@ def fetch_customer_details(ssn):
         print(f"Error: {e}")
         return None
 
+# Function to update customer details
 def update_customer_details(ssn, new_details):
     try:
         conn = mysql.connector.connect(
@@ -94,6 +105,7 @@ def update_customer_details(ssn, new_details):
         )
         if conn.is_connected():
             cursor = conn.cursor()
+            # SQL query to update customer details
             query = """
             UPDATE cdw_sapp_customer
             SET first_name = %s, last_name = %s, cust_phone = %s
@@ -101,13 +113,14 @@ def update_customer_details(ssn, new_details):
             """
             print(f"Executing query: {query} with values ({new_details}, {ssn})")
             cursor.execute(query, (*new_details, ssn))
-            conn.commit()
+            conn.commit()  # Commit the transaction
             cursor.close()
             conn.close()
             print(f"Customer details updated for SSN: {ssn}")
     except Error as e:
         print(f"Error: {e}")
 
+# Function to generate monthly bill for a credit card
 def generate_monthly_bill(credit_card_no, month, year):
     try:
         conn = mysql.connector.connect(
@@ -119,13 +132,14 @@ def generate_monthly_bill(credit_card_no, month, year):
         )
         if conn.is_connected():
             cursor = conn.cursor()
+            # SQL query to calculate the monthly bill
             query = """
             SELECT SUM(transaction_value) FROM cdw_sapp_credit_card
             WHERE credit_card_no = %s AND month = %s AND year = %s
             """
             print(f"Executing query: {query} with values ({credit_card_no}, {month}, {year})")
             cursor.execute(query, (credit_card_no, month, year))
-            bill = cursor.fetchone()[0]
+            bill = cursor.fetchone()[0]  # Fetch the sum of transaction values
             cursor.close()
             conn.close()
             return bill
@@ -133,6 +147,7 @@ def generate_monthly_bill(credit_card_no, month, year):
         print(f"Error: {e}")
         return None
 
+# Function to fetch transactions between two dates for a customer
 def fetch_transactions_between_dates(ssn, start_date, end_date):
     try:
         conn = mysql.connector.connect(
@@ -144,6 +159,7 @@ def fetch_transactions_between_dates(ssn, start_date, end_date):
         )
         if conn.is_connected():
             cursor = conn.cursor()
+            # SQL query to fetch transactions between dates
             query = """
             SELECT * FROM cdw_sapp_credit_card
             WHERE cust_ssn = %s AND DATE(CONCAT(year, '-', month, '-', day)) BETWEEN %s AND %s
@@ -151,7 +167,7 @@ def fetch_transactions_between_dates(ssn, start_date, end_date):
             """
             print(f"Executing query: {query} with values ({ssn}, {start_date}, {end_date})")
             cursor.execute(query, (ssn, start_date, end_date))
-            transactions = cursor.fetchall()
+            transactions = cursor.fetchall()  # Fetch all transactions
             cursor.close()
             conn.close()
             return transactions
@@ -159,6 +175,7 @@ def fetch_transactions_between_dates(ssn, start_date, end_date):
         print(f"Error: {e}")
         return []
 
+# Main function to handle customer details
 def main_customer_details():
     while True:
         print("\n1. Check Existing Account Details")
@@ -203,10 +220,11 @@ def main_customer_details():
         else:
             print("Invalid choice. Please try again.")
 
+# Main function to navigate between transaction and customer details
 def main():
     while True:
         print("\n1. Transaction Details")
-        print("\n2. Customer Details")
+        print("2. Customer Details")
         print("\n3. Exit")
         choice = input("Choose an option: ")
         if choice == '1':
