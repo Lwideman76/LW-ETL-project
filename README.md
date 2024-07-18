@@ -1,8 +1,8 @@
-# LW-Capstone-project
+# Advanced ETL Techniques: Loan and Credit Card Data Analysis
 
-# Capstone Project: Loan Application and Credit Card Data Analysis
+# Project Overview
 
-This project involves building an ETL process to analyze a Loan Application dataset and a Credit Card dataset. The goal of this project is to demonstrate my data engineering skills by cleaning, transforming, and visualizing data to provide actionable insights for anyone who views it
+This project involves building an ETL (Extract, Transform, Load) process to analyze a Loan Application dataset and a Credit Card dataset. The goal of this project is to demonstrate my data engineering skills by cleaning, transforming, and visualizing data to provide actionable insights.
 
 
 ## Setup and Installation
@@ -23,12 +23,16 @@ This project involves building an ETL process to analyze a Loan Application data
    cd LW-Capstone-project
 
 ### Data
-- Loan Application Dataset: Contains information on loan applications and their statuses. As well as well written steps given to break down the processes 
-- Credit Card Dataset: Contains information on credit card transactions and customer profiles. As well as well written steps given to break down the processes 
+
+### Loan Application Dataset
+Contains information on loan applications and their statuses. Detailed steps are provided to break down the processes involved.
+
+### Credit Card Dataset
+Contains information on credit card transactions and customer profiles. Detailed steps are provided to break down the processes involved.
 
 ### Code
-- `Data_Extraction.ipynb`: Jupyter notebook for cleaning and preprocessing the data.
-- `Data_Transformation.ipynb`: Jupyter notebook for cleaning, preprocessing and transforming data.
+- `Data_Extraction.ipynb`: Notebook for cleaning and preprocessing the data.
+- `Data_Transformation.ipynb`: Notebook for cleaning, preprocessing, and transforming data.
 - `Data_Visualization.ipynb`: Jupyter notebook for visualizing the data.
 
 ### Database Scripts
@@ -37,10 +41,10 @@ This project involves building an ETL process to analyze a Loan Application data
 
 ## Interpreting the Visualizations
 
-- **Loan Approval Rate for Self-Employed Applicants**: The bar chart shows the approval rate of loan applications for self employed indivuals vs not self employed and how many were approved over different time periods. A higher bar indicates a higher approval rate for people that are not self employed.
-- **Rejections for Married Male Applicants**: The line graph illustrates the spending patterns of customers over the past year. Peaks represent high represents the amount of approvals for married male applicants, while the low indicates the amount of rejection for married male applicants.
-- **Loan Applications Over the last 3 months**: This line chart displays the distribution of number of application within the last 3 months. Each line point represents the most applicants that they had in the exact month.
-- **Branch with the highest Healthcare Transcations** This scatter plot displays which branch had the highest transaction value.
+- **Loan Approval Rate for Self-Employed Applicants**: The bar chart shows the approval rate of loan applications for self-employed individuals versus non-self-employed individuals, detailing how many were approved over different time periods. A higher bar indicates a higher approval rate for non-self-employed individuals.
+- **Rejections for Married Male Applicants**: The line graph illustrates the number of loan application rejections for married male applicants. Peaks represent the high number of approvals for married male applicants, while the lows indicate the number of rejections.
+- **Loan Applications Over the last 3 months**: This line chart displays the distribution of the number of loan applications within the last three months. Each point on the line represents the number of applications received in a specific month.
+- **Branch with the highest Healthcare Transcations** This scatter plot displays which branch had the highest transaction value in the healthcare category. Each point represents a branch, with the size of the point indicating the total transaction value.
 
 
 ![Screenshot 2024-07-17 023531](https://github.com/user-attachments/assets/93d3cc28-6508-4070-990b-af86c950c66a)
