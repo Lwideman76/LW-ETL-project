@@ -9,6 +9,19 @@ secret*
 *.pem
 
 
+#Github Password
+leshawnwideman@gmail.com
+Don@mega1/23
+
+
+
+#MySql Database
+
+host='localhost',
+        user='root',
+        password='Password',
+        database='creditcard_capstone'
+        port='3306'
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
