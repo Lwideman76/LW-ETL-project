@@ -41,3 +41,23 @@ This project involves building an ETL process to analyze a Loan Application data
 - **Rejections for Married Male Applicants**: The line graph illustrates the spending patterns of customers over the past year. Peaks represent high represents the amount of approvals for married male applicants, while the low indicates the amount of rejection for married male applicants.
 - **Loan Applications Over the last 3 months**: This line chart displays the distribution of number of application within the last 3 months. Each line point represents the most applicants that they had in the exact month.
 - **Branch with the highest Healthcare Transcations** This scatter plot displays which branch had the highest transaction value.
+
+
+![Screenshot 2024-07-17 023531](https://github.com/user-attachments/assets/93d3cc28-6508-4070-990b-af86c950c66a)
+
+
+![Screenshot 2024-07-17 023622](https://github.com/user-attachments/assets/1562737a-6c73-444b-a670-38623b9389b5)
+
+![Screenshot 2024-07-17 023630](https://github.com/user-attachments/assets/710bbeb8-ed5b-4af2-acd1-9066ea94e477)
+
+
+![Screenshot 2024-07-17 024028](https://github.com/user-attachments/assets/cfbf6e64-458f-4917-a513-4bd11ee48e93)
+
+
+![Screenshot 2024-07-17 051506](https://github.com/user-attachments/assets/252f4789-6304-42ff-bfff-48876b1547f5)
+
+
+![Screenshot 2024-07-17 051520](https://github.com/user-attachments/assets/b2e5c3be-0248-447c-9465-20f3ce80434d)
+
+
+![Screenshot 2024-07-17 051615](https://github.com/user-attachments/assets/ede55c94-be8f-4a38-82de-e18e0f0c0b3a)
