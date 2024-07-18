@@ -98,3 +98,40 @@ SELECT * FROM cdw_sapp_credit_card
 SELECT cust_zip
 FROM cdw_sapp_customer;
 
+SELECT first_name, cust_zip
+FROM cdw_sapp_customer;
+
+SELECT *
+FROM cdw_sapp_customer
+WHERE cust_ssn = '%s';
+
+SHOW TABLES IN creditcard_capstone;
+
+SELECT *
+FROM cdw_sapp_customer
+WHERE ssn = '%s'
+LIMIT 0, 1000;
+
+SELECT * FROM cdw_sapp_credit_card
+WHERE branch_code = '%s' AND month = '%s' AND year = '%s'
+ORDER BY day DESC;
+#with values (94580, 4, 2018);
+
+SELECT * FROM cdw_sapp_credit_card;
+SELECT * FROM cdw_sapp_customer;
+
+SELECT * 
+FROM cdw_sapp_credit_card
+WHERE branch_code = '%s' AND month = '%s' AND year = '%s'
+ORDER BY day DESC;
+
+SELECT * FROM cdw_sapp_credit_card
+WHERE ssn = '%s' AND DATE(CONCAT(year, '-', month, '-', day)) BETWEEN '%s' AND '%s'
+ORDER BY DATE(CONCAT(year, '-', month, '-', day)) DESC;
+
+
+SELECT cust_state AS State, COUNT(*) AS 'Number of Customers'
+    FROM cdw_sapp_customer
+    GROUP BY cust_state
+    ORDER BY COUNT(*) DESC
+    LIMIT 10;
